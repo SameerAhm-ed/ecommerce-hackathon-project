@@ -1,7 +1,11 @@
 import './globals.css'
-import { Inter } from 'next/font/google'
-
-const inter = Inter({ subsets: ['latin'] })
+import Header from '@/components/layout/Header'
+import Wrapper from '@/components/shared/wrapper'
+import Footer from '@/views/Fotter';
+import ReduxProvider from '@/utils/ReduxProvider';
+import toast, { Toaster } from 'react-hot-toast';
+import { ClerkProvider, auth } from '@clerk/nextjs'
+// const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
   title: 'Create Next App',
@@ -13,9 +17,26 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+  const { userId }: any = auth();
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
-    </html>
+    <ClerkProvider>
+      <ReduxProvider>
+        <html lang="en">
+          <body>
+            <Wrapper>
+              <div className="wrapper">
+                <Header userId={userId} />
+                <main className='px-8'>
+                  {children}
+                  <Toaster />
+                </main>
+                <Footer />
+              </div>
+            </Wrapper>
+          </body>
+        </html>
+      </ReduxProvider>
+    </ClerkProvider>
+
   )
 }
