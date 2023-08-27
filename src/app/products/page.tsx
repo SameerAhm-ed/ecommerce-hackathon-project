@@ -5,35 +5,35 @@ import { Product } from '@/utils/ProductTypes';
 import { client } from "../../../sanity/lib/client";
 
 
-// const getAllProducts = async () => {
+const getAllProducts = async () => {
 
-//     const res = await fetch(`${BASE_PATH_FORAPI}/api/products`, {
-//         method: 'GET'
-//     });
+    const res = await fetch(`${BASE_PATH_FORAPI}/api/products`, {
+        method: 'GET'
+    });
 
-//     return res.json();
-// }
-
-const getProducts = async() => {
-    const query = `*[_type=="product"][0]{
-        name,
-        price,
-        'image': image.asset->url,
-        category,
-        tagline,
-        _id
-    }`;
-    const res = await client.fetch(query);
-    return res;
-
+    return res.json();
 }
+
+// const getProducts = async() => {
+//     const query = `*[_type=="product"][0]{
+//         name,
+//         price,
+//         'image': image.asset->url,
+//         category,
+//         tagline,
+//         _id
+//     }`;
+//     const res = await client.fetch(query);
+//     return res;
+
+// }
 
 async function AllProducts() {
 
-    // const { data } = await getAllProducts();
+    const { data } = await getAllProducts();
 
-    const { data } = await getProducts();
-    console.log(data)
+    // const { data } = await getProducts();
+    // console.log(data)
 
     return (
         <div>

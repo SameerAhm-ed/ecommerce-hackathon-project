@@ -6,21 +6,21 @@ import Image from "next/image";
 
 function Hero() {
     return (
-        <section className="flex flex-col lg:flex-row gap-y-10 py-6">
+        <section className="flex flex-col py-6 lg:flex-row gap-y-10">
             {/* left side  */}
             <div className="flex-1 mt-28">
-                <Badge className="py-3 px-6 rounded-lg bg-blue-200 text-blue-700 hover:bg-none">
+                <Badge className="px-6 py-3 text-blue-700 bg-blue-200 rounded-lg hover:bg-none">
                     Sale 70%
                 </Badge>
-                <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl mt-6">
-                    The Joke Tax Chronicles
+                <h1 className="mt-6 text-4xl font-extrabold tracking-tight scroll-m-20 lg:text-5xl">
+                An Industrial Take on Streetwear
                 </h1>
                 <p className="leading-7 [&:not(:first-child)]:mt-6">
                     Once upon a time, in a far-off land, there was a very lazy king who
                     spent all day lounging on his throne. One day, his advisors came to him
                     with a problem: the kingdom was running out of money.
                 </p>
-                <Button className="bg-black h-12 px-8 mt-4">
+                <Button className="h-12 px-8 mt-4 bg-black">
                     Start Shopping
                 </Button>
                 <div>
@@ -32,7 +32,7 @@ function Hero() {
 
             </div>
             {/* Right side  */}
-            <div className="hidden md:flex flex-1">
+            <div className="flex-1 hidden md:flex">
                 <div className="w-auto h-auto rounded-full bg-[#ffece3]">
                     <Image src={heroImage} alt="Hero Image" />
                 </div>
